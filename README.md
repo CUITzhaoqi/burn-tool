@@ -1,0 +1,1 @@
+nuitka --follow-imports main.py --output-dir build --verbose --show-scons --show-progress
