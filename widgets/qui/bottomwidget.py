@@ -1,7 +1,7 @@
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtWidgets import QWidget, QDialog, QPlainTextEdit, QSpinBox, QHBoxLayout, QVBoxLayout, QComboBox, \
+from PySide2 import QtWidgets, QtCore
+from PySide2.QtWidgets import QWidget, QDialog, QPlainTextEdit, QSpinBox, QHBoxLayout, QVBoxLayout, QComboBox, \
     QCompleter, QLabel, QStatusBar, QStyleOption
-from PyQt5.QtGui import QPainter,QColor,QFont
+from PySide2.QtGui import QPainter,QColor,QFont
 from qtpy import QtGui
 
 
