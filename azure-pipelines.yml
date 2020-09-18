@@ -1,0 +1,30 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+strategy:
+  matrix:
+    Python37:
+      python.version: '3.7'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
+
+- script: |
+    python -m pip install --upgrade pip
+  displayName: 'Install dependencies'
+
+- script: |
+    pip install -r requirements.txt
+  displayName: 'Install requirements'
+
+- script: |
+    nuitka --follow-imports burn-tool.py --output-dir build --verbose --show-scons --show-progress --standalone --windows-icon burn-tool.ico
+  displayName: 'nuitka burn-tool'
